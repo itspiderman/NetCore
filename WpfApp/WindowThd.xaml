@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfApp.WindowThd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="WindowThd" Height="300" Width="300">
+    <Grid>
+        <StackPanel Margin="0,86.191,0,83.809">
+            <Label x:Name="lblHello" Content="欢迎你光临WPF的世界!"/>
+            <Button x:Name="btnThd" Content="多线程同步调用" Margin="0,0,79.078,0" Click="btnThd_Click"/>
+            <Button x:Name="btnAppBeginInvoke" Content="BeginInvoke异步调用" Margin="0,0,79.078,0" Click="btnAppBeginInvoke_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="WFP MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" Margin="10,10,0,35.065" Width="184.496">
+            <Button x:Name="button" Content="OpenWindowCanvas" Click="button_Click" Margin="0,0,-1.355,0"/>
+            <Button x:Name="button2" Content="OpenWindowThd" Click="button2_Click" Margin="0,0,49.44,0"/>
+            <Button x:Name="button1" Content="OpenWindowDock" Click="button1_Click" Margin="0,0,64.276,0"/>
+            <Button x:Name="button3" Content="OpenWindowViewBox " Margin="0,0,10,0" Click="button3_Click"/>
+            <Button x:Name="button4" Content="OpenWindowBindData" Click="button4_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>
