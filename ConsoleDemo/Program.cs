@@ -13,8 +13,20 @@ namespace ConsoleApp
         {
             //MQ.Sendor.runSendor();
             //MQ.Receivor.runReceivor();
-            System.Console.WriteLine("hello console library!");
-            //Thread.Sleep(10000);
+           // System.Console.WriteLine("hello console library!");
+           
+            Hello h = new Hello();
+
+            Console.WriteLine("start TickCount st");
+            int st = Environment.TickCount;
+            h.appendString();
+            int md = Environment.TickCount;
+            System.Console.WriteLine("Time spend is {0}", (md - st));
+            
+            h.addString();
+            int et = Environment.TickCount;
+            System.Console.WriteLine("Time spend is {0}",  (et - md));
+            //Thread.Sleep(10000);                  
         }
     }
 }
