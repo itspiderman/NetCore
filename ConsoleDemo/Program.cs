@@ -21,11 +21,12 @@ namespace ConsoleApp
             int st = Environment.TickCount;
             h.appendString();
             int md = Environment.TickCount;
-            System.Console.WriteLine("Time spend is {0}", (md - st));
+            System.Console.WriteLine("Time spend for append fundtion is {0}", (md - st));
             
             h.addString();
             int et = Environment.TickCount;
-            System.Console.WriteLine("Time spend is {0}",  (et - md));
+            System.Console.WriteLine("Time spend for add fundtion is {0}",  (et - md));
+            System.Console.ReadKey();
             //Thread.Sleep(10000);                  
         }
     }

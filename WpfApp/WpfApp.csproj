@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WpfApp</RootNamespace>
     <AssemblyName>WpfApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="com.service\Login.cs" />
     <Compile Include="WindowCanvas.xaml.cs">
       <DependentUpon>WindowCanvas.xaml</DependentUpon>
     </Compile>
@@ -62,6 +64,9 @@
     </Compile>
     <Compile Include="WindowThd.xaml.cs">
       <DependentUpon>WindowThd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfWindows\WindowLogon.xaml.cs">
+      <DependentUpon>WindowLogon.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfWindows\WindowBindData.xaml.cs">
       <DependentUpon>WindowBindData.xaml</DependentUpon>
@@ -90,6 +95,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WindowThd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WpfWindows\WindowLogon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dalclasslib\Dalclasslib.csproj">
+      <Project>{cb3d9dab-1dee-47bf-9084-3130c6cd9592}</Project>
+      <Name>Dalclasslib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

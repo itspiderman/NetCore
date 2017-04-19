@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+//user namespace
+using WpfApp.WpfWindows;
 
 namespace WpfApp
 {
@@ -54,6 +55,12 @@ namespace WpfApp
         {
             WpfWindows.WindowBindData wd = new WpfWindows.WindowBindData();
             wd.ShowDialog();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            WpfWindows.WindowLogon wl = new WpfWindows.WindowLogon();
+            wl.ShowDialog();
         }
     }
 }

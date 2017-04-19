@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         Title="WFP MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <StackPanel HorizontalAlignment="Left" Margin="10,10,0,35.065" Width="184.496">
             <Button x:Name="button" Content="OpenWindowCanvas" Click="button_Click" Margin="0,0,-1.355,0"/>
             <Button x:Name="button2" Content="OpenWindowThd" Click="button2_Click" Margin="0,0,49.44,0"/>
