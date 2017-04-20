@@ -58,11 +58,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="com.dal.mssql\SqlHelper.cs" />
     <Compile Include="com.dal.mssql\MsSqlHelper.cs" />
-    <Compile Include="com.dal.oracle\OracleSqlHelper.cs" />
-    <Compile Include="com.dal\Dbquery.cs" />
-    <Compile Include="com.dal\iDbquery.cs" />
+    <Compile Include="com.dal.oracle\OracleSqlDbHelper.cs" />
+    <Compile Include="com.dal\AbstractSqlHelper.cs" />
+    <Compile Include="com.dal\BaseDao.cs" />
+    <Compile Include="com.dal\iDbWriteDao.cs" />
+    <Compile Include="com.dal\TfundReadDao.cs" />
+    <Compile Include="com.dal\iDbReadDao.cs" />
     <Compile Include="com.dal\iSqlHelper.cs" />
+    <Compile Include="com.dal\TuserReadDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

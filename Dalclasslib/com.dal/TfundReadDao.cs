@@ -12,10 +12,10 @@ using System.Data.SqlClient;
 
 namespace Dalclasslib.com.dal
 {
-    public class Dbquery:iDbquery
+    public class TfundReadDao:iDbReadDao
     {
         iSqlHelper sh;
-        public Dbquery()
+        public TfundReadDao()
         {
             sh = new OracleSqlHelper();
         }

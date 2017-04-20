@@ -12,7 +12,7 @@ namespace WpfApp.com.service
     {
         public int chklogin(String sName,String sPwd)
         {
-            Dbquery dq = new Dbquery();
+            TfundReadDao dq = new TfundReadDao();
             return dq.selectCount(sName,sPwd);
         }
     }

@@ -3,20 +3,84 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Dalclasslib.com.dal.mssql
 {
-    class MsSqlHelper : iSqlHelper
+    public sealed class MsSqlHelper : iSqlHelper
     {
-        public int execProcedure(string sStoreProName, string sPara1, string sPara2)
+        private static SqlConnection con = null;
+        public static int connectionCount=0;
+        private static string sqlConnectionString = "Data Source = (localdb)\\MSSQLLocalDB;Integrated Security = False; Initial Catalog = posdb; User ID = sa; Password=sa;"
+                                                   +"Connect Timeout = 15; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static readonly object lockHelper = new object();
+
+
+        public string SqlConnectionString
         {
-            throw new NotImplementedException();
+            get
+            {
+               return sqlConnectionString;
+            }
         }
 
-        int iSqlHelper.execProcedure(String sStoreProName)
+        public static SqlConnection getConnectionInstance()
+        {
+            if (con == null)
+            {
+                lock (lockHelper)
+                {
+                    if (con == null)
+                    {                        
+                        con = new SqlConnection();
+                        con.ConnectionString = sqlConnectionString;
+                        openConnection();
+                        connectionCount++;
+                    }
+                }
+            }
+            else
+            {
+                openConnection();
+            }
+            return con;
+        }
+        public static void openConnection()
+        {
+            if (con.State != System.Data.ConnectionState.Open)
+            {
+                con.Open();
+            }
+        }
+        public static void closeConnection()
+        {
+            if (con.State != System.Data.ConnectionState.Closed)
+            {
+                con.Close();
+            }
+        }
+        //1. Return DataReader
+        public SqlDataReader querySQLDataReader(string strSQL)
+        {
+            SqlCommand cmd = new SqlCommand();            
+            cmd.Connection = getConnectionInstance();
+            Console.WriteLine("connection count is " + connectionCount);
+            cmd.CommandText = strSQL;
+            //cmd.Parameters
+            SqlDataReader dataReader = cmd.ExecuteReader();
+            return dataReader;
+        }
+
+        public SqlDataReader queryProcedureDataReader(String sStoreProName)
         {
             throw new NotImplementedException();
         }
+        public SqlDataReader queryProcedureDataReader(string sStoreProName, string sPara1, string sPara2)
+        {
+            throw new NotImplementedException();
+        }
+        //2. Return DataTable
+
 
     }
 }

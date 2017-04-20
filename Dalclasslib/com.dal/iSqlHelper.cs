@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Dalclasslib.com.dal
 {
-    interface iSqlHelper
+    public interface iSqlHelper
     {
-        int execProcedure(String sStoreProName);
-        int execProcedure(String sStoreProName, String sPara1, String sPara2);
+        SqlDataReader querySQLDataReader(string strSQL);
+        SqlDataReader queryProcedureDataReader(string sStoreProName);
+        SqlDataReader queryProcedureDataReader(string sStoreProName, string sPara1, string sPara2);
     }
 }
