@@ -14,10 +14,10 @@ namespace Dalclasslib.com.dal
 {
     public class TfundReadDao:iDbReadDao
     {
-        iSqlHelper sh;
+       // iSqlHelper sh;
         public TfundReadDao()
         {
-            sh = new OracleSqlHelper();
+           // sh = new OracleSqlHelper();
         }
 
         public int execProcedure(string sStoreProName)

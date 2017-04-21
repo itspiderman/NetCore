@@ -5,20 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using System.Data;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 
-namespace Dalclasslib.com.dal.oracle
+namespace Dalclasslib.com.dal
 {
     [TestClass()]
     public class OracleSqlHelperTests
     {
+        OracleSqlHelper sqlhelper = new OracleSqlHelper();
         [TestMethod()]
         public void querySQLDataReaderTest()
-        {
-            OracleSqlHelper sqlhelper = new OracleSqlHelper();
-            string sqlstr = "select * from tuser";
+        {            
+            string sqlstr = "select fundcode,fundname,fundurl,fundtypecode,crtDateTime from tfund where rownum<200 order by fundname";
             string userName = "";
-            SqlDataReader dr = sqlhelper.querySQLDataReader(sqlstr);
+            OracleDataReader dr = sqlhelper.querySQLDataReader(sqlstr);
             while (dr.Read())
             {
                 userName = dr.GetString(0);
@@ -26,13 +28,22 @@ namespace Dalclasslib.com.dal.oracle
                 break;
             }
             dr.Close();
-            Assert.AreEqual("kevin", userName);
+            Assert.AreEqual("000975", userName);
         }
 
         [TestMethod()]
         public void queryProcedureDataReaderTest()
         {
-            
+            //string queryFundSP = "queryFundSP";
+            //DataSet dataSet = sqlhelper.queryProcedureDataSet(queryFundSP);
+            //DataTable dataTable = dataSet.Tables[0];
+            //string userName = "";
+            //foreach(DataRow dRow in dataTable.Rows)
+            //{
+            //    userName = dRow[0].ToString();
+            //    break;
+            //}
+            //Assert.AreEqual("kevin", userName);
             Assert.Fail();
         }
 

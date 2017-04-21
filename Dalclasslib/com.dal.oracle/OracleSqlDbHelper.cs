@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+// oracle connection
+//using System.Data.OracleClient;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+
 
 namespace Dalclasslib.com.dal.oracle
 {
-    public class OracleSqlHelper : iSqlHelper
+    public class OracleSqlHelper //: iSqlHelper
     {
         //private string sqlConnectionString;
         private string getSqlConnectionString()
@@ -12,39 +17,42 @@ namespace Dalclasslib.com.dal.oracle
             string sqlconnectionString= System.Configuration.ConfigurationManager.ConnectionStrings["DefaultDB"].ConnectionString.ToString();
             return sqlconnectionString;
         }
-        public SqlDataReader querySQLDataReader(string strSQL)
+        private string getSqlConnectionString(string defaultDB)
         {
-            SqlDataReader dr = null;
-            //using (SqlConnection con = new SqlConnection(getSqlConnectionString()))
-            //{
-            SqlConnection con = new SqlConnection(getSqlConnectionString());
+            string sqlConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["oracleDB"].ConnectionString.ToString();
+            return sqlConnectionString;
+        }
+        public OracleDataReader querySQLDataReader(string strSQL)
+        {
+            OracleConnection con = new OracleConnection(getSqlConnectionString(""));
                 con.Open();
-                SqlCommand cmd = new SqlCommand();
+                OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = strSQL;
                 cmd.Connection = con;
 
-            dr = cmd.ExecuteReader();
-            //con.Close();
-            //con.Dispose();              
-            //}
-            //after leave this using code block, will call connection Dispose();
+            OracleDataReader dr = cmd.ExecuteReader();            
             return dr;
         }
-        public SqlDataReader queryProcedureDataReader(string sStoreProName)
+        public DataSet queryProcedureDataSet(string sStoreProName)
         {
-            
-
-            throw new NotImplementedException();
+            DataSet dataset = new DataSet();
+            using (OracleConnection con = new OracleConnection(getSqlConnectionString("")))
+            {
+                con.Open();
+                OracleCommand cmd = new OracleCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = sStoreProName; 
+                OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+                dataAdapter.Fill(dataset);                
+            }
+            return dataset;
         }
 
         public SqlDataReader queryProcedureDataReader(string sStoreProName, string sPara1, string sPara2)
         {
             throw new NotImplementedException();
         }
-
-
-
-
     }
 }

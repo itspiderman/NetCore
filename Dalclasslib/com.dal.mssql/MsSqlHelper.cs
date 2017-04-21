@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Dalclasslib.com.dal.mssql
 {
@@ -15,6 +16,10 @@ namespace Dalclasslib.com.dal.mssql
                                                    +"Connect Timeout = 15; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private static readonly object lockHelper = new object();
 
+        private string getSqlConnectionString()
+        {
+            return sqlConnectionString;
+        }
 
         public string SqlConnectionString
         {
@@ -62,16 +67,28 @@ namespace Dalclasslib.com.dal.mssql
         //1. Return DataReader
         public SqlDataReader querySQLDataReader(string strSQL)
         {
-            SqlCommand cmd = new SqlCommand();            
-            cmd.Connection = getConnectionInstance();
-            Console.WriteLine("connection count is " + connectionCount);
+            //SqlCommand cmd = new SqlCommand();            
+            //cmd.Connection = getConnectionInstance();
+            //Console.WriteLine("connection count is " + connectionCount);
+            //cmd.CommandText = strSQL;
+            ////cmd.Parameters
+            //SqlDataReader dataReader = cmd.ExecuteReader();
+            //return dataReader;
+            //
+            SqlDataReader dr = null;
+            SqlConnection con = new SqlConnection(getSqlConnectionString());
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.Text;
             cmd.CommandText = strSQL;
-            //cmd.Parameters
-            SqlDataReader dataReader = cmd.ExecuteReader();
-            return dataReader;
+            cmd.Connection = con;
+
+            dr = cmd.ExecuteReader();
+            
+            return dr;
         }
 
-        public SqlDataReader queryProcedureDataReader(String sStoreProName)
+        public DataSet queryProcedureDataSet(string sStoreProName)
         {
             throw new NotImplementedException();
         }

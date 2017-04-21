@@ -46,7 +46,7 @@ namespace Dalclasslib.com.dal.mssql.Tests
         }
 
         [TestMethod()]
-        public void queryProcedureDataReaderTest()
+        public void queryProcedureDataSetTest()
         {
             Assert.Fail();
         }

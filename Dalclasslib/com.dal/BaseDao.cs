@@ -12,7 +12,7 @@
             }
             else
             {
-                sqlHelper = new oracle.OracleSqlHelper();
+                //sqlHelper = new OracleSqlHelper();
             }
         }
     }
