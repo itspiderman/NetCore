@@ -1,15 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Dalclasslib.com.dal.oracle;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
-
-namespace Dalclasslib.com.dal
+using Dalclasslib.com.dal.oracle;
+namespace Dalclasslib.com.dal.oracle
 {
     [TestClass()]
     public class OracleSqlHelperTests

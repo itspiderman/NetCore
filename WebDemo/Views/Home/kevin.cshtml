@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Kevin";
+}
+<h2>@ViewData["Title"].</h2>
+<p>This is MVC kevin's view, welcome!</p>
+
+@using (Html.BeginForm("FundIndex", "Fund", null, FormMethod.Post, true, new { id = "mainForm" }))
+{
+    <p>  Html.BeginForm("ActionName", "ControlName", routeValue, FormMethod.Post,true, html Arttributes) </p>
+    <li><a href="javascript:check();">登 录</a></li>
+}
+
+<script type="text/javascript">
+    function check() {
+        $('#mainForm').submit();
+
+    }
+</script>

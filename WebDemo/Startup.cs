@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+//
+using WebDemo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebDemo
 {
@@ -36,7 +39,11 @@ namespace WebDemo
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            services.AddDbContext<TodoContext>(opt=>opt.UseInMemoryDatabase());   // add by kevin
+
             services.AddMvc();
+
+            services.AddScoped<ITodoRepository, TodoRepository>();  // add by kevin
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,9 +70,13 @@ namespace WebDemo
 
             app.UseMvc(routes =>
             {
+                //routes.MapRoute(
+                //    name: "default",
+                //    template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller}/{action}/{id?}",
+                    defaults:new { controller = "Home", action = "Index" });
             });
         }
     }

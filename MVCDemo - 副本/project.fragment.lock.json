@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "exports": {
+    "Dalclasslib/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5.2",
+      "compile": {
+        "bin/Debug/Dalclasslib.dll": {}
+      },
+      "runtime": {
+        "../packages/EnterpriseLibrary.Common.6.0.1304.0/lib/NET45/Microsoft.Practices.EnterpriseLibrary.Common.dll": {},
+        "../packages/EnterpriseLibrary.Data.6.0.1304.0/lib/NET45/Microsoft.Practices.EnterpriseLibrary.Data.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
+        "../packages/Oracle.ManagedDataAccess.12.1.2400/lib/net40/Oracle.ManagedDataAccess.dll": {},
+        "../packages/Oracle.ManagedDataAccess.EntityFramework.12.1.2400/lib/net45/Oracle.ManagedDataAccess.EntityFramework.dll": {},
+        "../packages/System.Data.Common.4.3.0/lib/net451/System.Data.Common.dll": {},
+        "../packages/System.Data.SqlClient.4.3.0/lib/net451/System.Data.SqlClient.dll": {},
+        "bin/Debug/Dalclasslib.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Dalclasslib.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

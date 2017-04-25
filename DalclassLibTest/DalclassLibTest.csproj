@@ -61,15 +61,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dalclasslib\Dalclasslib.csproj">
-      <Project>{CB3D9DAB-1DEE-47BF-9084-3130C6CD9592}</Project>
-      <Name>Dalclasslib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dalclasslib\Dalclasslib.csproj">
+      <Project>{cb3d9dab-1dee-47bf-9084-3130c6cd9592}</Project>
+      <Name>Dalclasslib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

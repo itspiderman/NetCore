@@ -1,0 +1,42 @@
+﻿@model MVCDemo.Models.TFund
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TFund</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fundName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fundName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fundUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fundUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.crtDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.crtDateTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.fundCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

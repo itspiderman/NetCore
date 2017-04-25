@@ -1,0 +1,31 @@
+﻿@model WebDemo.Models.FundModel
+@{
+    ViewData["Title"] = "Fund Rating Report Home Page";
+}
+<h2>@ViewData["Title"].</h2>
+This is the Fund Rating Report, you can choise the fund which you would link to do investment! <br />
+Html.BeginForm（"ActionName","ControllerName",FormMethod.method）<br />
+<div id="searchBar">
+    @using (Html.BeginForm("FundSearch", "Fund", FormMethod.Post, new { id = "searchForm" }))
+    {
+    <ul>
+        <li><span>基金名称：</span>@Html.TextBoxFor(model => model.fundName, new {Value = "001048", @name = "fundName", @id = "fundNameTxt" })
+        <li><span>基金类型：</span>@Html.TextBoxFor(model => model.fundTypecode, new { @name = "fundType", @id = "fundTypeTxt" })
+        <li><a href="javascript:check();">查 找</a>
+    </ul>
+    }
+</div>
+
+<script type="text/javascript">
+    function check() {
+        var fundName = document.getElementById("fundNameTxt").value;
+        var fundType = document.getElementById("fundTypeTxt").value;
+        if ("" == fundName && "" == fundType) {
+            alert("Please input one search creitial at least!");
+        } else {
+            $('#searchForm').submit();
+        }
+
+    }
+
+</script>
